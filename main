@@ -25,11 +25,12 @@ ultra = UltrasonicSensor(Port.S4)
 left = Motor(port.8)
 right = Motor(Port.C)
 robot = DriveBase(left, right, 1, 1)
+#class DriveBase(left_motor, right_motor, wheel_diameter, axle_track)
 
 while True:
 
     if ultra.distance() < 200: #손이 닿았을 때
-        robot.drive(200,0)
+        robot.drive(200,0) #drive(drive_speed, turn_rate)
         wait(1000)
         if ultra.distance(200) >200:
             robot.drive(-200,0)
